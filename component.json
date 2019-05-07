@@ -1,0 +1,304 @@
+{
+    "title": "Domains API Client",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/web-Domains/2018-02-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Domains_CheckAvailability": {
+            "main": "./lib/actions/Domains_CheckAvailability.js",
+            "title": "Check if a domain is available for registration.",
+            "description": "Check if a domain is available for registration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_CheckAvailability.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_List": {
+            "main": "./lib/actions/Domains_List.js",
+            "title": "Get all domains in a subscription.",
+            "description": "Get all domains in a subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_GetControlCenterSsoRequest": {
+            "main": "./lib/actions/Domains_GetControlCenterSsoRequest.js",
+            "title": "Generate a single sign-on request for the domain management portal.",
+            "description": "Generate a single sign-on request for the domain management portal.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_GetControlCenterSsoRequest.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_ListRecommendations": {
+            "main": "./lib/actions/Domains_ListRecommendations.js",
+            "title": "Get domain name recommendations based on keywords.",
+            "description": "Get domain name recommendations based on keywords.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_ListRecommendations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_ListByResourceGroup": {
+            "main": "./lib/actions/Domains_ListByResourceGroup.js",
+            "title": "Get all domains in a resource group.",
+            "description": "Get all domains in a resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_Delete": {
+            "main": "./lib/actions/Domains_Delete.js",
+            "title": "Delete a domain.",
+            "description": "Delete a domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_Get": {
+            "main": "./lib/actions/Domains_Get.js",
+            "title": "Get a domain.",
+            "description": "Get a domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_Update": {
+            "main": "./lib/actions/Domains_Update.js",
+            "title": "Creates or updates a domain.",
+            "description": "Creates or updates a domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_CreateOrUpdate": {
+            "main": "./lib/actions/Domains_CreateOrUpdate.js",
+            "title": "Creates or updates a domain.",
+            "description": "Creates or updates a domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_ListOwnershipIdentifiers": {
+            "main": "./lib/actions/Domains_ListOwnershipIdentifiers.js",
+            "title": "Lists domain ownership identifiers.",
+            "description": "Lists domain ownership identifiers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_ListOwnershipIdentifiers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_DeleteOwnershipIdentifier": {
+            "main": "./lib/actions/Domains_DeleteOwnershipIdentifier.js",
+            "title": "Delete ownership identifier for domain",
+            "description": "Delete ownership identifier for domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_DeleteOwnershipIdentifier.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_GetOwnershipIdentifier": {
+            "main": "./lib/actions/Domains_GetOwnershipIdentifier.js",
+            "title": "Get ownership identifier for domain",
+            "description": "Get ownership identifier for domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_GetOwnershipIdentifier.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_UpdateOwnershipIdentifier": {
+            "main": "./lib/actions/Domains_UpdateOwnershipIdentifier.js",
+            "title": "Creates an ownership identifier for a domain or updates identifier details for an existing identifer",
+            "description": "Creates an ownership identifier for a domain or updates identifier details for an existing identifer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_UpdateOwnershipIdentifier.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_CreateOrUpdateOwnershipIdentifier": {
+            "main": "./lib/actions/Domains_CreateOrUpdateOwnershipIdentifier.js",
+            "title": "Creates an ownership identifier for a domain or updates identifier details for an existing identifer",
+            "description": "Creates an ownership identifier for a domain or updates identifier details for an existing identifer",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_CreateOrUpdateOwnershipIdentifier.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Domains_Renew": {
+            "main": "./lib/actions/Domains_Renew.js",
+            "title": "Renew a domain.",
+            "description": "Renew a domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Domains_Renew.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
